@@ -1,0 +1,21 @@
+[2025-12-11T13:51:52.307+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-11T13:51:52.391+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sqlserver_to_file_pymssql_dag.export_task manual__2025-12-11T13:51:45.922910+00:00 [queued]>
+[2025-12-11T13:51:52.405+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sqlserver_to_file_pymssql_dag.export_task manual__2025-12-11T13:51:45.922910+00:00 [queued]>
+[2025-12-11T13:51:52.405+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-12-11T13:51:52.450+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): export_task> on 2025-12-11 13:51:45.922910+00:00
+[2025-12-11T13:51:52.464+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=829) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-12-11T13:51:52.466+0000] {standard_task_runner.py:63} INFO - Started process 848 to run task
+[2025-12-11T13:51:52.463+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'sqlserver_to_file_pymssql_dag', 'export_task', 'manual__2025-12-11T13:51:45.922910+00:00', '--job-id', '228', '--raw', '--subdir', 'DAGS_FOLDER/sqlserver_to_file_dag_2.py', '--cfg-path', '/tmp/tmpqloxltdd']
+[2025-12-11T13:51:52.467+0000] {standard_task_runner.py:91} INFO - Job 228: Subtask export_task
+[2025-12-11T13:51:52.541+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-12-11T13:51:52.661+0000] {task_command.py:426} INFO - Running <TaskInstance: sqlserver_to_file_pymssql_dag.export_task manual__2025-12-11T13:51:45.922910+00:00 [running]> on host 96e6b20aaf9c
+[2025-12-11T13:51:52.975+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='sqlserver_to_file_pymssql_dag' AIRFLOW_CTX_TASK_ID='export_task' AIRFLOW_CTX_EXECUTION_DATE='2025-12-11T13:51:45.922910+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-11T13:51:45.922910+00:00'
+[2025-12-11T13:51:52.977+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-11T13:51:53.140+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/sqlserver_to_file_dag_2.py:17 UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+[2025-12-11T13:51:53.232+0000] {logging_mixin.py:188} INFO - FILE SAVED: /opt/***/dags/sqlserver_export.csv
+[2025-12-11T13:51:53.233+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-12-11T13:51:53.235+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-11T13:51:53.280+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=sqlserver_to_file_pymssql_dag, task_id=export_task, execution_date=20251211T135145, start_date=20251211T135152, end_date=20251211T135153
+[2025-12-11T13:51:53.365+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-12-11T13:51:53.431+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-11T13:51:53.458+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

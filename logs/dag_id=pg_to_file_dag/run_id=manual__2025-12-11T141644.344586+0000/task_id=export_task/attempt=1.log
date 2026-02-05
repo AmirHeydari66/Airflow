@@ -1,0 +1,65 @@
+[2025-12-11T14:16:50.320+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-11T14:16:50.394+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pg_to_file_dag.export_task manual__2025-12-11T14:16:44.344586+00:00 [queued]>
+[2025-12-11T14:16:50.406+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pg_to_file_dag.export_task manual__2025-12-11T14:16:44.344586+00:00 [queued]>
+[2025-12-11T14:16:50.407+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-12-11T14:16:50.453+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): export_task> on 2025-12-11 14:16:44.344586+00:00
+[2025-12-11T14:16:50.463+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'pg_to_file_dag', 'export_task', 'manual__2025-12-11T14:16:44.344586+00:00', '--job-id', '233', '--raw', '--subdir', 'DAGS_FOLDER/pg_to_file_dag.py', '--cfg-path', '/tmp/tmps3s06wu0']
+[2025-12-11T14:16:50.465+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1595) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-12-11T14:16:50.467+0000] {standard_task_runner.py:91} INFO - Job 233: Subtask export_task
+[2025-12-11T14:16:50.467+0000] {standard_task_runner.py:63} INFO - Started process 1602 to run task
+[2025-12-11T14:16:50.542+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-12-11T14:16:50.659+0000] {task_command.py:426} INFO - Running <TaskInstance: pg_to_file_dag.export_task manual__2025-12-11T14:16:44.344586+00:00 [running]> on host 96e6b20aaf9c
+[2025-12-11T14:16:50.965+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pg_to_file_dag' AIRFLOW_CTX_TASK_ID='export_task' AIRFLOW_CTX_EXECUTION_DATE='2025-12-11T14:16:44.344586+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-11T14:16:44.344586+00:00'
+[2025-12-11T14:16:50.968+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-11T14:16:51.035+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/pg_to_file_dag.py:18 UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+[2025-12-11T14:16:51.037+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-11T14:16:51.038+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/sql.py", line 2262, in execute
+    cur.execute(sql, *args)
+psycopg2.errors.UndefinedTable: relation "pg_tbl_test" does not exist
+LINE 1: SELECT id, name FROM pg_tbl_test;
+                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/pg_to_file_dag.py", line 18, in export_data
+    df = pd.read_sql(query, conn)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/sql.py", line 654, in read_sql
+    return pandas_sql.read_query(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/sql.py", line 2326, in read_query
+    cursor = self.execute(sql, params)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/sql.py", line 2274, in execute
+    raise ex from exc
+pandas.errors.DatabaseError: Execution failed on sql 'SELECT id, name FROM pg_tbl_test;': relation "pg_tbl_test" does not exist
+LINE 1: SELECT id, name FROM pg_tbl_test;
+                             ^
+
+[2025-12-11T14:16:51.088+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=pg_to_file_dag, task_id=export_task, execution_date=20251211T141644, start_date=20251211T141650, end_date=20251211T141651
+[2025-12-11T14:16:51.136+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 233 for task export_task (Execution failed on sql 'SELECT id, name FROM pg_tbl_test;': relation "pg_tbl_test" does not exist
+LINE 1: SELECT id, name FROM pg_tbl_test;
+                             ^
+; 1602)
+[2025-12-11T14:16:51.164+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-12-11T14:16:51.221+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-11T14:16:51.252+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

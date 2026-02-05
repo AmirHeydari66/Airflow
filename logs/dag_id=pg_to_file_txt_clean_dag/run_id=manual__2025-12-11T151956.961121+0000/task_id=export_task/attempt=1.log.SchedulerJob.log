@@ -1,0 +1,1 @@
+[2025-12-11T15:17:28.363+0000] {task_context_logger.py:104} ERROR - Executor reports task instance <TaskInstance: pg_to_file_txt_clean_dag.export_task manual__2025-12-11T15:19:56.961121+00:00 [queued]> finished (success) although the task says it's queued. (Info: None) Was the task killed externally?

@@ -1,0 +1,27 @@
+[2025-12-11T14:35:37.363+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-11T14:35:37.459+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pg_to_file_dag_fixed.export_task manual__2025-12-11T14:35:28.616466+00:00 [queued]>
+[2025-12-11T14:35:37.473+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pg_to_file_dag_fixed.export_task manual__2025-12-11T14:35:28.616466+00:00 [queued]>
+[2025-12-11T14:35:37.474+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-12-11T14:35:37.632+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): export_task> on 2025-12-11 14:35:28.616466+00:00
+[2025-12-11T14:35:37.639+0000] {standard_task_runner.py:63} INFO - Started process 2043 to run task
+[2025-12-11T14:35:37.644+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'pg_to_file_dag_fixed', 'export_task', 'manual__2025-12-11T14:35:28.616466+00:00', '--job-id', '234', '--raw', '--subdir', 'DAGS_FOLDER/pg_to_file_dag.py', '--cfg-path', '/tmp/tmp06cfp4tp']
+[2025-12-11T14:35:37.647+0000] {standard_task_runner.py:91} INFO - Job 234: Subtask export_task
+[2025-12-11T14:35:37.724+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-12-11T14:35:37.846+0000] {task_command.py:426} INFO - Running <TaskInstance: pg_to_file_dag_fixed.export_task manual__2025-12-11T14:35:28.616466+00:00 [running]> on host 96e6b20aaf9c
+[2025-12-11T14:35:38.175+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pg_to_file_dag_fixed' AIRFLOW_CTX_TASK_ID='export_task' AIRFLOW_CTX_EXECUTION_DATE='2025-12-11T14:35:28.616466+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-11T14:35:28.616466+00:00'
+[2025-12-11T14:35:38.176+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-11T14:35:38.241+0000] {logging_mixin.py:188} INFO - >>> Result from PostgreSQL (Airflow metadata DB)
+[2025-12-11T14:35:38.242+0000] {logging_mixin.py:188} INFO - ('system_info_dag', None, True, False, False, datetime.datetime(2025, 12, 11, 12, 49, 10, 380526, tzinfo=datetime.timezone.utc))
+[2025-12-11T14:35:38.242+0000] {logging_mixin.py:188} INFO - ('simple_time_and_hostname_log_dag', None, True, False, False, datetime.datetime(2025, 12, 11, 12, 49, 10, 394397, tzinfo=datetime.timezone.utc))
+[2025-12-11T14:35:38.243+0000] {logging_mixin.py:188} INFO - ('sqlserver_to_file_dag', None, True, False, True, datetime.datetime(2025, 12, 11, 14, 35, 28, 989123, tzinfo=datetime.timezone.utc))
+[2025-12-11T14:35:38.243+0000] {logging_mixin.py:188} INFO - ('pg_to_file_dag_fixed', None, False, False, True, datetime.datetime(2025, 12, 11, 14, 38, 8, 50074, tzinfo=datetime.timezone.utc))
+[2025-12-11T14:35:38.244+0000] {logging_mixin.py:188} INFO - ('read_***_pg_dag', None, True, False, True, datetime.datetime(2025, 12, 11, 14, 35, 33, 145030, tzinfo=datetime.timezone.utc))
+[2025-12-11T14:35:38.245+0000] {logging_mixin.py:188} INFO - ('sqlserver_to_file_pymssql_dag', None, True, False, True, datetime.datetime(2025, 12, 11, 14, 35, 33, 152612, tzinfo=datetime.timezone.utc))
+[2025-12-11T14:35:38.245+0000] {logging_mixin.py:188} INFO - ('pg_to_file_dag', None, True, False, True, datetime.datetime(2025, 12, 11, 14, 34, 35, 865052, tzinfo=datetime.timezone.utc))
+[2025-12-11T14:35:38.246+0000] {logging_mixin.py:188} INFO - ('postgres_to_sqlserver_without_connection_id', None, True, False, False, datetime.datetime(2025, 12, 11, 13, 14, 33, 599811, tzinfo=datetime.timezone.utc))
+[2025-12-11T14:35:38.247+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-12-11T14:35:38.247+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-11T14:35:38.295+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=pg_to_file_dag_fixed, task_id=export_task, execution_date=20251211T143528, start_date=20251211T143537, end_date=20251211T143538
+[2025-12-11T14:35:38.380+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-12-11T14:35:38.448+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-11T14:35:38.482+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

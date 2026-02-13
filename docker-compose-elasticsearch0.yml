@@ -22,7 +22,6 @@
 #
 # This configuration supports basic configuration using environment variables or an .env file
 # The following variables are supported:
-#
 # AIRFLOW_IMAGE_NAME         - Docker image name used to run Airflow.
 #                              Default: apache/airflow:master-python3.8
 # AIRFLOW_UID                - User ID in Airflow containers
@@ -33,7 +32,6 @@
 #                              Default: airflow
 # _AIRFLOW_WWW_USER_PASSWORD - Password for the administrator account.
 #                              Default: airflow
-#
 # Feel free to modify this file to suit your needs.
 ---
 version: '3'

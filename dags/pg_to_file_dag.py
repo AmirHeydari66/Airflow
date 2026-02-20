@@ -43,7 +43,7 @@ def export_from_postgres_to_file():
 with DAG(
     dag_id="pg_to_file_txt_dag",
     start_date=datetime(2024, 1, 1),
-    schedule_interval=None,
+    schedule_interval= "*/2 * * * *",
     catchup=False
 ):
 

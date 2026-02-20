@@ -44,14 +44,14 @@ services:
   scheduler:
     <<: *airflow-common
     command: scheduler
-    restart: always
+    restart: "no"
 
   webserver:
     <<: *airflow-common
     command: webserver
     ports:
       - "8080:8080"
-    restart: always
+    restart: "no"
 
 volumes:
   postgres-db-volume:
